@@ -1,0 +1,9 @@
+[project]
+name = "claims-ai"
+version = "0.1.0"
+description = "Enterprise-style simulation of a healthcare claims adjudication and explanation system using FastAPI, LangGraph, React, and synthetic data, focused on safe and responsible AI design."
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "fastapi>=0.127.0",
+]

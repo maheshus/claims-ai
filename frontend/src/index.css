@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 1. Apple-Style Typography & Dark Mode Base */
+@layer base {
+  html {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    letter-spacing: -0.015em;
+  }
+  
+  body {
+    background-color: #000000;
+    color: #f5f5f7;
+  }
+}
+
+/* 2. Custom Scrollbars (Dark Grey) */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333333;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #444444;
+}
+
+/* 3. Glassmorphism Utilities */
+@layer utilities {
+  .glass-panel {
+    @apply bg-[#1c1c1e]/80 backdrop-blur-xl border border-white/10;
+  }
+  
+  .glass-card {
+    @apply bg-[#1c1c1e]/60 backdrop-blur-md border border-white/5 hover:bg-[#2c2c2e] transition-all duration-300;
+  }
+}
+
+/* 4. ANIMATION: Text Shimmer (For "Mahesh U S" Badge) */
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
+}
+
+.animate-shine {
+  background-size: 200% auto;
+  animation: shine 3s linear infinite;
+}
+
+/* 5. ANIMATION: Seamless Scroll (For Top Warning Banner) */
+/* This moves the strip left by 50%. Since content is duplicated, it looks infinite. */
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-scroll {
+  display: flex;
+  width: max-content; /* Ensure container fits the text */
+  animation: scroll 40s linear infinite; /* Slow, smooth speed */
+}
+
+.animate-scroll:hover {
+  animation-play-state: paused;
+}
